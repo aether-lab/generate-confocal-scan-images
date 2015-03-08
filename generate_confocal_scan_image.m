@@ -5,10 +5,9 @@ function OUTPUT_IMAGE = generate_confocal_scan_image(INPUT_IMAGE, KERNEL_SIZE, A
 scanned_image = scan_image_deformation(INPUT_IMAGE, A, B);
 
 % Specify the kernel filter
-kernel_filter = ones(KERNEL_SIZE);
-kernel_filter = kernel_filter ./ length(kernel_filter(:));
+kernel_filter = ones(KERNEL_SIZE) ./ KERNEL_SIZE^2;
 
 % Convolve the image with the moving-average filter.
-OUTPUT_IMAGE = conv2(kernel_filter, scanned_image);
+OUTPUT_IMAGE = conv2(scanned_image, kernel_filter, 'same');
     
 end
