@@ -1,6 +1,8 @@
 function IMAGE_OUT = scan_image_deformation(IMAGE_IN, A, B);
 % Write what this function does!
 
+% This is a test change!
+
 % Size of the input images.
 [height, width] = size(IMAGE_IN);
 
